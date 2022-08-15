@@ -11,10 +11,13 @@ export interface IProduct {
   }
 }
 
-export type FakestoreContextType = {
+export type FakeStoreContextType = {
   products: IProduct[];
   setProducts: (snippet: IProduct[]) => void;
   addProducts: (snippet: IProduct[]) => void;
+  cart: IProduct[];
+  addToCart: (snippet: IProduct) => void;
+  removeFromCart: (snippet: IProduct) => void;
   loading: boolean;
   setLoading: (loading: boolean) => void;
   error: string;

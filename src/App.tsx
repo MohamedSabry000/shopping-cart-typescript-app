@@ -6,11 +6,11 @@ import {Drawer, LinearProgress, Badge, Grid} from '@mui/material'
 import {Wrapper} from './App.styles'
 // APi
 import { getList } from "./api";
-import { FakestoreContextType } from "./@types/fakestore";
-import { FakestoreContext } from "./context/FakestoreContext";
+import { FakeStoreContextType } from "./@types/fakestore";
+import { FakeStoreContext } from "./context/FakestoreContext";
 
 const App = () => {
-  const { setLoading, setError, setProducts } = useContext(FakestoreContext) as FakestoreContextType;
+  const { setLoading, setError, setProducts } = useContext(FakeStoreContext) as FakeStoreContextType;
 
   useEffect(() => {
     setLoading(true);
