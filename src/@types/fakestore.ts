@@ -8,7 +8,8 @@ export interface IProduct {
   rating: {
     rate: number,
     count: number
-  }
+  },
+  quantity: number
 }
 
 export type FakeStoreContextType = {
