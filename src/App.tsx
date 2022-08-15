@@ -10,7 +10,7 @@ import { FakeStoreContextType } from "./@types/fakestore";
 import { FakeStoreContext } from "./context/FakestoreContext";
 
 const App = () => {
-  const { setLoading, setError, setProducts } = useContext(FakeStoreContext) as FakeStoreContextType;
+  const { loading, setLoading, error, setError, setProducts } = useContext(FakeStoreContext) as FakeStoreContextType;
 
   useEffect(() => {
     setLoading(true);
@@ -26,7 +26,10 @@ const App = () => {
     })
   } , [])
 
-  return <div className="App"> Hello World</div>;
+  return loading ? <LinearProgress /> : error ? <div>{error}</div>
+    : <Wrapper>
+        <div className="App"> Hello World</div>;
+      </Wrapper>
 }
 
 export default App;
