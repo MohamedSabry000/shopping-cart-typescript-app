@@ -1,11 +1,7 @@
-import youtube from './FakeStore';
+import FakeStore from './FakeStore';
 import { IProduct } from '../@types/fakestore';
 
-export const getList = async (query: string) : Promise<IProduct[]> => {
-  const {data} = await youtube.get('/', {
-    params: {
-      q: query
-    }
-  });
-  return data?.items;
+export const getList = async () : Promise<IProduct[]> => {
+  const {data} = await FakeStore.get(`/products`);
+  return data;
 }

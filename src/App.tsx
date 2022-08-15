@@ -1,9 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 // Components
-import {Drawer, LinearProgress, Badge, Grid} from '@mui/material'
-// import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-// Styles
-import {Wrapper} from './App.styles'
+import {LinearProgress} from '@mui/material'
+import Home from "./screens/home/Home";
 // APi
 import { getList } from "./api";
 import { FakeStoreContextType } from "./@types/fakestore";
@@ -14,7 +12,8 @@ const App = () => {
 
   useEffect(() => {
     setLoading(true);
-    getList("react").then(data => {
+    getList().then(data => {
+      console.log(data)
       setProducts(data);
       setError("");
     }).catch(err => {
@@ -26,10 +25,7 @@ const App = () => {
     })
   } , [])
 
-  return loading ? <LinearProgress /> : error ? <div>{error}</div>
-    : <Wrapper>
-        <div className="App"> Hello World</div>;
-      </Wrapper>
+  return loading ? <LinearProgress /> : error ? <div>{error}</div> : <Home />
 }
 
 export default App;
