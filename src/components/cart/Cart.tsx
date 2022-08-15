@@ -9,9 +9,8 @@ import { Grid } from '@mui/material';
 const Cart: React.FC = () => {
 
   const { cart } = useContext(FakeStoreContext) as FakeStoreContextType;
-  useEffect(() => {
-    console.log(cart);
-  } , [cart]);
+  const calculateTotla = () => cart.reduce((acc: number, item) => acc + item.quantity * item.price, 0);
+
   return (
     <Wrapper>
       <h2>Your Shopping Cart</h2>
@@ -22,6 +21,9 @@ const Cart: React.FC = () => {
             <CartItem key={item.id} product={item} />
           </Grid>
         ))}
+        <Grid item xs={12}>
+          <h3>Total: ${calculateTotla().toFixed(2)}</h3>
+        </Grid>
       </Grid>
     </Wrapper>
   )
